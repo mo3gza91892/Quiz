@@ -47,7 +47,7 @@ function Next(){
     Scoure();
     counter++;
     if (counter === coation.length) {
-        title.innerHTML = `<h1>${score} Form ${counter}</h1>`;
+        title.innerHTML = `<h1>${score} From ${counter}</h1>`;
         done.innerHTML = "إعادة";
         option.remove();
     }
@@ -58,7 +58,7 @@ function Next(){
     else{
         addcoation(coation[counter].Q);
     }
-    console.log(score);
+//     console.log(score);
 }
 
 addcoation(coation[counter].Q);
@@ -70,8 +70,8 @@ function Scoure() {
     for(let i = 0; i < answers.length; i++){
         if(answers[i].checked){
             let y = document.getElementById(`${answers[i].id}_id`);
-            console.log(coation.length +" length");
-            console.log(counter + ' counter');
+//             console.log(coation.length +" length");
+//             console.log(counter + ' counter');
             
             if (y.innerText === coation[counter].ATrue) {
                 score ++;
