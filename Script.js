@@ -1,6 +1,6 @@
-let  coation = [
+let  Q_A = [
     {
-        "Q":"اجور عمال بالمصنع يمكن تبوبها إلي تكاليف اجور",
+        "Q":"اجور عمال بالمصنع يمكن تبويها إلي تكاليف اجور",
         "A":[
             "صناعية",
             "تسويقية",
@@ -10,13 +10,13 @@ let  coation = [
         "ATrue":"صناعية"
     },
     {
-        "Q":"المصروف هو تكلفة مستفادة لا يترتب عليها عائد ويعد من الخسائر التي ترحل إلي ق ا.خ",
+        "Q":"المصروف هو تكلفة مستفدة لا يترتب عليها عائد ويعد من الخسائر التي ترحل إلي ق ا.خ",
         "A":[
             "صح",
             "غلط",
             ],
-        "ATrue":"غلط"
-    },
+            "ATrue":"غلط"
+        },
     {
         "Q":"عنصر تكلفة الاجور يتمثل في السلع والمعدات والادوات وكافة المستلزمات السلعية التي تتميز بانها غير ملموسة وقابلة للتخزين",
         "A":[
@@ -34,11 +34,91 @@ let  coation = [
         "ATrue":"صح"
     },
 ]
-
+let  Q_B = [
+    {
+        "Q":"اجور عمال بالمصنع يمكن تبويها إلي تكاليف اجور",
+        "A":[
+            "صناعية",
+            "تسويقية",
+            "إدارية وتمويلية",
+            "راسمالية",
+            ],
+        "ATrue":"صناعية"
+    },
+]
+let  Q_C = [
+    {
+        "Q":"اجور عمال بالمصنع يمكن تبويها إلي تكاليف اجور",
+        "A":[
+            "صناعية",
+            "تسويقية",
+            "إدارية وتمويلية",
+            "راسمالية",
+            ],
+        "ATrue":"صناعية"
+    },
+]
+let  Q_D = [
+    {
+        "Q":"اجور عمال بالمصنع يمكن تبويها إلي تكاليف اجور",
+        "A":[
+            "صناعية",
+            "تسويقية",
+            "إدارية وتمويلية",
+            "راسمالية",
+            ],
+        "ATrue":"صناعية"
+    },
+]
+let  Q_E = [
+    {
+        "Q":"اجور عمال بالمصنع يمكن تبويها إلي تكاليف اجور",
+        "A":[
+            "صناعية",
+            "تسويقية",
+            "إدارية وتمويلية",
+            "راسمالية",
+            ],
+        "ATrue":"صناعية"
+    },
+]
+let  Q_F = [
+    {
+        "Q":"اجور عمال بالمصنع يمكن تبويها إلي تكاليف اجور",
+        "A":[
+            "صناعية",
+            "تسويقية",
+            "إدارية وتمويلية",
+            "راسمالية",
+            ],
+        "ATrue":"صناعية"
+    },
+]
+let Matrials =[
+    {
+        "Matrial":"محاسبة تكاليف",
+    },{
+        "Matrial":"دراسات ادارية باللغة الانجليزية",
+    },{
+        "Matrial":"اقتصاد كلي",
+    },{
+        "Matrial":"تحليل وتصميم نظم المعلومات",
+    },{
+        "Matrial":"التسويق والتجارة الكترونية",
+    },{
+        "Matrial":"إدارة مشتريات",
+    }
+]
+let select = Q_A;
+// console.log(Matrials.length);
+// for (let i = 0; i < Matrials.length; i++) {
+    // console.log(Matrials[i].Matrial);
+    
+// }
 let done = document.getElementById('done');
 let title = document.querySelector('.text');
 let option = document.querySelector('.option ul');
-
+let row = document.querySelector(".row");
 let counter = 0;
 let score = 0;
 
@@ -46,23 +126,20 @@ let score = 0;
 function Next(){
     Scoure();
     counter++;
-    if (counter === coation.length) {
-        title.innerHTML = `<h1>${score} From ${counter}</h1>`;
+    if (counter === select.length) {
+        title.innerHTML = `<h1>${score} Form ${counter}</h1>`;
         done.innerHTML = "إعادة";
         option.remove();
     }
-    else if(counter === coation.length+1)
+    else if(counter === select.length+1)
     {
         location.reload();
     }
     else{
-        addcoation(coation[counter].Q);
+        addQuestion(select);
     }
-//     console.log(score);
+    // console.log(score);
 }
-
-addcoation(coation[counter].Q);
-
 function Scoure() {
     let answers = document.getElementsByName('radio');
     let youranswer;
@@ -70,32 +147,38 @@ function Scoure() {
     for(let i = 0; i < answers.length; i++){
         if(answers[i].checked){
             let y = document.getElementById(`${answers[i].id}_id`);
-//             console.log(coation.length +" length");
-//             console.log(counter + ' counter');
+            // console.log(Q_A.length +" length");
+            // console.log(counter + ' counter');
             
-            if (y.innerText === coation[counter].ATrue) {
+            if (y.innerText === Q_A[counter].ATrue) {
                 score ++;
             }
         }
     }
 }
 
-function addcoation(text){
+function addQuestion(text){
+    select = text;
     title.innerHTML = '';
     option.innerHTML = '';
+    let title_text = document.createElement("div");
+    title_text.id = "text";
+    row.appendChild(title_text);
+    title.style.display = "block";
+    done.style.display = "block";
     let q = document.createElement("h2");
-    let qtext = document.createTextNode(text);
+    let qtext = document.createTextNode(text[counter].Q);
     q.appendChild(qtext);
     title.appendChild(q);
     
     
-    for(let i = 0; i < coation[counter].A.length; i++)
+    for(let i = 0; i < text[counter].A.length; i++)
     {
         //create lablel
         let thelabel = document.createElement("label");
         thelabel.htmlFor = `A_${i}`;
         thelabel.id = `A_${i}_id`
-        let Atext = document.createTextNode(coation[counter].A[i]);
+        let Atext = document.createTextNode(text[counter].A[i]);
         thelabel.appendChild(Atext);
         
         //Create input radio
@@ -108,4 +191,19 @@ function addcoation(text){
         thelabel.appendChild(inputradio);
         option.append(thelabel);
     }
+}
+SelectQuestions();
+
+function SelectQuestions(){
+    // option.innerHTML = '';
+    for (let i = 0; i < Matrials.length; i++) {
+        document.getElementById(`a${i+1}`).innerHTML = Matrials[i].Matrial;
+    }
+    document.getElementById('a2').style.display = "none";
+    document.getElementById('a3').style.display = "none";
+    document.getElementById('a4').style.display = "none";
+    document.getElementById('a5').style.display = "none";
+    document.getElementById('a6').style.display = "none";
+    done.style.display = "none";
+    title.style.display = "none";
 }
