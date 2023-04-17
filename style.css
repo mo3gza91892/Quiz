@@ -78,12 +78,19 @@ button{
     color: white;
     cursor:pointer;
 }
+#End{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 16vw;
+}
 @media screen and (max-width: 600px) {
     .row {
         position: absolute;
         top: 15px;
         right: 50%;
         transform: translateX(50%);
-        box-shadow: 0 0 15px white;
+        box-shadow: 0 0 30px silver;
     }
   }
