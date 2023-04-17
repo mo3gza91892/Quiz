@@ -84,6 +84,6 @@ button{
         top: 15px;
         right: 50%;
         transform: translateX(50%);
-        box-shadow: 0 0 15px red;
+        box-shadow: 0 0 15px white;
     }
   }
