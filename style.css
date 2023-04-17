@@ -3,7 +3,7 @@
     margin: 0;
 }
 body{
-    background:#222;
+    background:linear-gradient(#222,#555);
 }
 .colum{
     height: 100vh;
@@ -17,6 +17,7 @@ body{
     width: 80%;
     height: 40%;
     color: wheat;
+    box-shadow: 0 0 15px #0000FF;
     border-radius: 20px;
     margin-bottom: 15px;
     padding: 15px;
@@ -28,9 +29,11 @@ body{
     justify-content: center;
     align-items: center;
     width: 80%;
-    height: 80vh;
+    height: 85vh;
     flex-direction: column;
-    background-color: #777;
+    background:linear-gradient(#222 ,#555);
+    box-shadow: 0 0 15px white;
+    /* background-color: #777; */
     border-radius: 25px;
 }
 .option{
@@ -59,7 +62,6 @@ body{
     position: absolute;
     left: 5%;
     top: 35%;
-    color: #000754;
     background-color: #000754;
 }
 button{
