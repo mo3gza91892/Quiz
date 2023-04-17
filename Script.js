@@ -110,11 +110,7 @@ let Matrials =[
     }
 ]
 let select = Q_A;
-// console.log(Matrials.length);
-// for (let i = 0; i < Matrials.length; i++) {
-    // console.log(Matrials[i].Matrial);
-    
-// }
+
 let done = document.getElementById('done');
 let title = document.querySelector('.text');
 let option = document.querySelector('.option ul');
@@ -124,19 +120,25 @@ let score = 0;
 
 
 function Next(){
-    Scoure();
-    counter++;
-    if (counter === select.length) {
-        title.innerHTML = `<h1>${score} Form ${counter}</h1>`;
-        done.innerHTML = "إعادة";
-        option.remove();
-    }
-    else if(counter === select.length+1)
+    let answers = document.getElementsByName('radio');
+    if(counter === select.length+1)
     {
         location.reload();
     }
-    else{
-        addQuestion(select);
+    for(let i = 0; i < answers.length; i++){
+        if(answers[i].checked){
+        Scoure();
+        counter++;
+        if (counter === select.length) {
+            title.innerHTML = `<h1 id="End">${score} From ${counter}</h1>`;
+            done.innerHTML = "إعادة";
+            option.remove();
+            counter++;
+        }
+        else{
+            addQuestion(select);
+        }
+    }
     }
     // console.log(score);
 }
