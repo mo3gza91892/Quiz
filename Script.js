@@ -130,7 +130,7 @@ function Next(){
         Scoure();
         counter++;
         if (counter === select.length) {
-            title.innerHTML = `<h1 id="End">${score} From ${counter}</h1>`;
+            title.innerHTML = `<h1 id="End">${score} <br>From<br> ${counter}</h1>`;
             done.innerHTML = "إعادة";
             option.remove();
             counter++;
