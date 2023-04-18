@@ -24,6 +24,7 @@ body{
     padding: 15px;
     overflow:auto;
     text-align: center;
+    transition: 1.5s;
 }
 .row{
     display: flex;
@@ -34,12 +35,13 @@ body{
     flex-direction: column;
     background:linear-gradient(#222 ,#555);
     box-shadow: 0 0 15px white;
-    /* background-color: #777; */
     border-radius: 25px;
+    transition: 1.5s;
 }
 .option{
     align-self: center;
     width: 80%;
+    transition: 1.5s;
 }
 .option ul label{
     cursor: pointer;
@@ -83,7 +85,14 @@ button{
     justify-content: center;
     align-items: center;
     height: 100%;
-    font-size: 16vw;
+    font-size: 14vw;
+}
+.row span{
+    position: absolute;
+    bottom: 2vh;
+    right: 4vw;
+    color: wheat;
+    font-size: 24px;
 }
 @media screen and (max-width: 600px) {
     .row {
@@ -92,5 +101,8 @@ button{
         right: 50%;
         transform: translateX(50%);
         box-shadow: 0 0 30px silver;
+    }
+    #End{
+        font-size: 16vw;
     }
   }
