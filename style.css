@@ -97,7 +97,7 @@ button{
 @media screen and (max-width: 600px) {
     .row {
         position: absolute;
-        top: 15px;
+        top: 30px;
         right: 50%;
         transform: translateX(50%);
         box-shadow: 0 0 30px silver;
