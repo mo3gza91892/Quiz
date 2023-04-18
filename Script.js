@@ -336,8 +336,9 @@ function Next(){
         Scoure();
         counter++;
         if (counter === select.length) {
-            title.innerHTML = `<h1 id="End">${score} <br>From<br> ${counter}</h1>`;
+            title.innerHTML = `<h1 id="End">${score}<br>From<br>${counter}</h1>`;
             done.innerHTML = "إعادة";
+            document.querySelector(".row span").style.display = "none";
             option.remove();
             counter++;
         }
@@ -350,7 +351,7 @@ function Next(){
 }
 function Scoure() {
     let answers = document.getElementsByName('radio');
-    let youranswer;
+    // let youranswer;
     
     for(let i = 0; i < answers.length; i++){
         if(answers[i].checked){
@@ -379,7 +380,7 @@ function addQuestion(text){
     q.appendChild(qtext);
     title.appendChild(q);
     
-    
+    document.querySelector(".row span").innerHTML = `${counter+1} : ${Q_A.length}`;
     for(let i = 0; i < text[counter].A.length; i++)
     {
         //create lablel
