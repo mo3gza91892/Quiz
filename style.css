@@ -93,11 +93,25 @@ button{
     right: 4vw;
     color: wheat;
     font-size: 24px;
+    /* right: 15px; */
+}
+.Reboirt a img{
+    display: none;
 }
 @media screen and (max-width: 600px) {
+    .Reboirt a img{
+        display: block;
+        width: 50px;
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        border-radius: 25px;
+        overflow: visible;
+        box-shadow:  0 0 15px green;
+    }
     .row {
         position: absolute;
-        top: 30px;
+        top: 15px;
         right: 50%;
         transform: translateX(50%);
         box-shadow: 0 0 30px silver;

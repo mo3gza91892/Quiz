@@ -321,8 +321,10 @@ let done = document.getElementById('done');
 let title = document.querySelector('.text');
 let option = document.querySelector('.option ul');
 let row = document.querySelector(".row");
+let YourAnssure = [];
 let counter = 0;
 let score = 0;
+let arr = [];
 
 
 function Next(){
@@ -356,9 +358,8 @@ function Scoure() {
     for(let i = 0; i < answers.length; i++){
         if(answers[i].checked){
             let y = document.getElementById(`${answers[i].id}_id`);
-            // console.log(Q_A.length +" length");
-            // console.log(counter + ' counter');
-            
+            YourAnssure[counter] = y.innerText;
+            // console.log(YourAnssure)
             if (y.innerText === Q_A[counter].ATrue) {
                 score ++;
             }
@@ -367,6 +368,7 @@ function Scoure() {
 }
 
 function addQuestion(text){
+    random(text.length);
     select = text;
     title.innerHTML = '';
     option.innerHTML = '';
@@ -376,7 +378,7 @@ function addQuestion(text){
     title.style.display = "block";
     done.style.display = "block";
     let q = document.createElement("h2");
-    let qtext = document.createTextNode(text[counter].Q);
+    let qtext = document.createTextNode(text[arr[counter]].Q);
     q.appendChild(qtext);
     title.appendChild(q);
     
@@ -387,7 +389,9 @@ function addQuestion(text){
         let thelabel = document.createElement("label");
         thelabel.htmlFor = `A_${i}`;
         thelabel.id = `A_${i}_id`
-        let Atext = document.createTextNode(text[counter].A[i]);
+        // let t = arr[counter];
+        // console.log(t+1);
+        let Atext = document.createTextNode(text[arr[counter]].A[i]);
         thelabel.appendChild(Atext);
         
         //Create input radio
@@ -404,7 +408,6 @@ function addQuestion(text){
 SelectQuestions();
 
 function SelectQuestions(){
-    // option.innerHTML = '';
     for (let i = 0; i < Matrials.length; i++) {
         document.getElementById(`a${i+1}`).innerHTML = Matrials[i].Matrial;
     }
@@ -415,4 +418,18 @@ function SelectQuestions(){
     document.getElementById('a6').style.display = "none";
     done.style.display = "none";
     title.style.display = "none";
+}
+
+function random(max) {
+    // console.log("Hello");
+    let randomNum = Math.floor(Math.random() * max);
+    for (let i = 0; i < arr.length; i++) {
+        if (randomNum === arr[i]) {
+            randomNum = Math.floor(Math.random() * max);
+            i = 0;
+        }
+    }
+    // console.log(randomNum);
+    arr[counter] = randomNum;
+    // console.log(arr);
 }
