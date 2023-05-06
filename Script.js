@@ -998,9 +998,9 @@ function Scoure() {
     for(let i = 0; i < answers.length; i++){
         if(answers[i].checked){
             let y = document.getElementById(`${answers[i].id}_id`);
-            YourAnssure[counter] = y.innerText;
+            YourAnssure[arr[counter]] = y.innerText;
             // console.log(YourAnssure)
-            if (y.innerText === select[counter].ATrue) {
+            if (y.innerText === select[arr[counter]].ATrue) {
                 score ++;
             }
         }
